@@ -1,0 +1,28 @@
+image_width: 2880
+image_height: 1440
+camera_name: insta360_x5
+# Placeholder calibration — to be filled in by a real calibration run.
+# Equirectangular projection is NOT a pinhole model; treat K/D as informational only.
+camera_matrix:
+  rows: 3
+  cols: 3
+  data: [1.0, 0.0, 1440.0,
+         0.0, 1.0, 720.0,
+         0.0, 0.0, 1.0]
+distortion_model: equirectangular
+distortion_coefficients:
+  rows: 1
+  cols: 5
+  data: [0.0, 0.0, 0.0, 0.0, 0.0]
+rectification_matrix:
+  rows: 3
+  cols: 3
+  data: [1.0, 0.0, 0.0,
+         0.0, 1.0, 0.0,
+         0.0, 0.0, 1.0]
+projection_matrix:
+  rows: 3
+  cols: 4
+  data: [1.0, 0.0, 1440.0, 0.0,
+         0.0, 1.0, 720.0, 0.0,
+         0.0, 0.0, 1.0, 0.0]

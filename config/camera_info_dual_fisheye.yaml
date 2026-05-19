@@ -1,0 +1,28 @@
+image_width: 1920
+image_height: 1080
+camera_name: insta360_x5
+# Placeholder calibration — dual fisheye (top-bottom layout).
+# Real calibration should be done per-fisheye half.
+camera_matrix:
+  rows: 3
+  cols: 3
+  data: [1.0, 0.0, 960.0,
+         0.0, 1.0, 540.0,
+         0.0, 0.0, 1.0]
+distortion_model: dual_fisheye_top_bottom
+distortion_coefficients:
+  rows: 1
+  cols: 5
+  data: [0.0, 0.0, 0.0, 0.0, 0.0]
+rectification_matrix:
+  rows: 3
+  cols: 3
+  data: [1.0, 0.0, 0.0,
+         0.0, 1.0, 0.0,
+         0.0, 0.0, 1.0]
+projection_matrix:
+  rows: 3
+  cols: 4
+  data: [1.0, 0.0, 960.0, 0.0,
+         0.0, 1.0, 540.0, 0.0,
+         0.0, 0.0, 1.0, 0.0]

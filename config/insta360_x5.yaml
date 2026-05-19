@@ -1,0 +1,18 @@
+/insta360_x5_node:
+  ros__parameters:
+    mode: "equirectangular"
+    device: "/dev/video0"
+    io_mode: 4
+    frame_id: "insta360_x5_camera"
+
+    publish_preview: true
+    preview_width: 1440
+    preview_height: 720
+
+    publish_compressed: true
+    drop_old_frames: true
+    use_gst_timestamp: true
+
+    camera_info_url: ""
+    reconnect_interval_sec: 2.0
+    frame_timeout_sec: 5.0

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CycloneDDS xmlns="https://cdds.io/config"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="https://cdds.io/config https://raw.githubusercontent.com/eclipse-cyclonedds/cyclonedds/master/etc/cyclonedds.xsd">
+  <!--
+    Configuration for transporting large sensor_msgs/Image messages
+    (e.g. 2880x1440 BGR ~= 12 MB) over loopback.
+    Usage:
+      export CYCLONEDDS_URI=file://$(ros2 pkg prefix insta360_x5_ros2)/share/insta360_x5_ros2/config/cyclonedds_large_msg.xml
+
+    Also requires raising kernel socket buffer ceilings (run once per boot):
+      sudo sysctl -w net.core.rmem_max=134217728
+      sudo sysctl -w net.core.wmem_max=134217728
+  -->
+  <Domain Id="any">
+    <General>
+      <Interfaces>
+        <NetworkInterface name="lo" priority="default" multicast="default"/>
+      </Interfaces>
+      <AllowMulticast>spdp</AllowMulticast>
+      <MaxMessageSize>65500B</MaxMessageSize>
+    </General>
+    <Internal>
+      <SocketReceiveBufferSize min="32MiB" max="default"/>
+      <SocketSendBufferSize min="32MiB" max="default"/>
+      <DefragUnreliableMaxSamples>32</DefragUnreliableMaxSamples>
+      <DefragReliableMaxSamples>32</DefragReliableMaxSamples>
+    </Internal>
+  </Domain>
+</CycloneDDS>
